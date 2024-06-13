@@ -1,31 +1,31 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from '../styles/blogposts.module.css'
 import Link from 'next/link'
 
 
 const Blog = () => {
-
+const [blogs,setBlogs] = useState([])
+useEffect(()=>{
+  fetch('http://localhost:3000/api/blogs').then((data)=>{
+    return data.json();
+  }).then((parsed)=>{
+    setBlogs(parsed)
+  })
+},[])
 
   return (
-    <div>
-            <div className={styles.content}>
-              <Link className={styles.link} href={'/blogposts/How to build AI'}>
-              <div className={styles.blog}>
-                <h3>How to build AI</h3>
-                <p>In This blog i will teach you Next JS from 0 to 100</p>
-              </div></Link>
-              <Link className={styles.link} href={'/blogposts/How to build Web Apps'}>
-              <div className={styles.blog}>
-                <h3>How to build Web Apps</h3>
-                <p>In This blog i will teach you Next JS from 0 to 100</p>
-              </div></Link>
-              <Link className={styles.link} href={'/blogposts/How to build Softwares'}>
-              <div className={styles.blog}>
-                <h3>How to build Softwares</h3>
-                <p>In This blog i will teach you Next JS from 0 to 100</p>
-              </div></Link>
-            </div>
-    </div>
+<div className={styles.content}>
+      {blogs.map((blog)=>(
+        <div key={blog.title}>
+          <Link className={styles.link} href={`/blogposts/${blog.title}`}>
+          <div className={styles.blog}>
+            <h3>{blog.title}</h3>
+            <p>{blog.description}</p>
+          </div>
+          </Link></div>
+        ))
+      }
+</div>
   )
 }
 
