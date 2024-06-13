@@ -1,0 +1,20 @@
+.container{
+justify-content: center;
+margin: 10px auto;
+max-width: 50%;
+}
+.content{
+padding: 50px;
+text-align: center;
+align-items: center;
+justify-content: center;
+}
+.blog{
+cursor: pointer;
+padding: 20px;
+}
+.content Link{
+background-color: red;
+text-decoration: nones;
+color: black;
+}

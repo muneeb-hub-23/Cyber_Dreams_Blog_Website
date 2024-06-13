@@ -1,0 +1,27 @@
+.nav ul{
+  margin-top: 50px;
+  justify-content: center;
+  display: flex;
+  list-style-type: none;
+}
+.nav ul li{
+  text-decoration: none;
+  margin: 10px 25px;
+  cursor: pointer;
+}
+.link{
+  text-decoration: none;
+}
+.main{
+  justify-content: center;
+  text-align: center;
+}
+.heading1{
+  color: blue;
+  margin: 30px;
+}
+
+.logoimage{
+  border-radius: 30px;
+  margin-top: 30px;
+}
