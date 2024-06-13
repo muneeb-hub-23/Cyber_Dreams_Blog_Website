@@ -6,9 +6,8 @@ export default function handler(req,res){
             res.status(200)
             res.send({error:"No Such Blog Found"})
         }else{
-        const newdata = JSON.parse(data)
         res.status(200)
-        res.send(newdata)
+        res.send(data)
         }
     })
     
