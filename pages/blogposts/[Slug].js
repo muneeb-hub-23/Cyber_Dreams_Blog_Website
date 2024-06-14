@@ -3,6 +3,9 @@ import { useRouter } from 'next/router'
 import styles from '../../styles/blogposts.module.css'
 import Head from 'next/head'
 const Slug = (props) => {
+const createMarkup = (newHTML)=>{
+return {__html:newHTML}
+}
 const [blog,setBlog] = useState(props.myprops)
 return (
     <div className={styles.container}>
@@ -15,6 +18,7 @@ return (
     <p className={styles.description}>{blog && blog.description}</p>
     <p className={styles.content}>{blog && blog.content}</p>
     <p className={styles.author}>{blog && blog.author}</p>
+    {blog && <div dangerouslySetInnerHTML={createMarkup(blog.html)}></div>}
     </div>
   )
 }
